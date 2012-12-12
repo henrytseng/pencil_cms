@@ -6,10 +6,8 @@
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-	<!-- 1140px Grid styles for IE -->
 	<!--[if lte IE 9]><link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" type="text/css" media="screen" /><![endif]-->
 
-	<!-- The 1140px Grid - http://cssgrid.net/ -->
 	<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/styles.css" type="text/css" media="screen" />
 	
@@ -18,6 +16,9 @@
 </head>
 <body>
 <header>
+	<div class="logo">
+		<h1><?php echo $this->pageTitle; ?></h1>
+	</div>
 	<?php $this->widget('zii.widgets.CMenu',array(
 		'items'=>array(
 			array('label'=>'Home', 'url'=>array('site/index')),
