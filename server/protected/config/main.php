@@ -50,7 +50,7 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=pencilcms_db',
 			'emulatePrepare' => true,
-			'username' => 'pencil_usr',
+			'username' => 'pencilcms_usr',
 			'password' => 'jSjwkeifdh3938',
 			'charset' => 'utf8',
 		),

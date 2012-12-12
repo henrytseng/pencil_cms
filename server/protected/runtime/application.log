@@ -1,0 +1,72 @@
+2012/12/11 23:33:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/main.css".' in /Canvas/www/htdocs/pencil_cms/server/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /Canvas/www/htdocs/pencil_cms/server/framework/web/CWebApplication.php(142): CWebApplication->runController('css/main.css')
+#1 /Canvas/www/htdocs/pencil_cms/server/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /Canvas/www/htdocs/pencil_cms/server/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pencil_cms/server/css/main.css
+HTTP_REFERER=http://localhost/pencil_cms/server/site/login
+---
+2012/12/11 23:33:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/form.css".' in /Canvas/www/htdocs/pencil_cms/server/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /Canvas/www/htdocs/pencil_cms/server/framework/web/CWebApplication.php(142): CWebApplication->runController('css/form.css')
+#1 /Canvas/www/htdocs/pencil_cms/server/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /Canvas/www/htdocs/pencil_cms/server/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pencil_cms/server/css/form.css
+HTTP_REFERER=http://localhost/pencil_cms/server/site/login
+---
+2012/12/11 23:33:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/screen.css".' in /Canvas/www/htdocs/pencil_cms/server/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /Canvas/www/htdocs/pencil_cms/server/framework/web/CWebApplication.php(142): CWebApplication->runController('css/screen.css')
+#1 /Canvas/www/htdocs/pencil_cms/server/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /Canvas/www/htdocs/pencil_cms/server/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pencil_cms/server/css/screen.css
+HTTP_REFERER=http://localhost/pencil_cms/server/site/login
+---
+2012/12/11 23:33:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/print.css".' in /Canvas/www/htdocs/pencil_cms/server/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /Canvas/www/htdocs/pencil_cms/server/framework/web/CWebApplication.php(142): CWebApplication->runController('css/print.css')
+#1 /Canvas/www/htdocs/pencil_cms/server/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /Canvas/www/htdocs/pencil_cms/server/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pencil_cms/server/css/print.css
+HTTP_REFERER=http://localhost/pencil_cms/server/site/login
+---
+2012/12/11 23:33:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/screen.css".' in /Canvas/www/htdocs/pencil_cms/server/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /Canvas/www/htdocs/pencil_cms/server/framework/web/CWebApplication.php(142): CWebApplication->runController('css/screen.css')
+#1 /Canvas/www/htdocs/pencil_cms/server/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /Canvas/www/htdocs/pencil_cms/server/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pencil_cms/server/css/screen.css
+HTTP_REFERER=http://localhost/pencil_cms/server/site/login
+---
+2012/12/11 23:33:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/main.css".' in /Canvas/www/htdocs/pencil_cms/server/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /Canvas/www/htdocs/pencil_cms/server/framework/web/CWebApplication.php(142): CWebApplication->runController('css/main.css')
+#1 /Canvas/www/htdocs/pencil_cms/server/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /Canvas/www/htdocs/pencil_cms/server/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pencil_cms/server/css/main.css
+HTTP_REFERER=http://localhost/pencil_cms/server/site/login
+---
+2012/12/11 23:33:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/form.css".' in /Canvas/www/htdocs/pencil_cms/server/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /Canvas/www/htdocs/pencil_cms/server/framework/web/CWebApplication.php(142): CWebApplication->runController('css/form.css')
+#1 /Canvas/www/htdocs/pencil_cms/server/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /Canvas/www/htdocs/pencil_cms/server/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pencil_cms/server/css/form.css
+HTTP_REFERER=http://localhost/pencil_cms/server/site/login
+---
+2012/12/11 23:33:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/print.css".' in /Canvas/www/htdocs/pencil_cms/server/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /Canvas/www/htdocs/pencil_cms/server/framework/web/CWebApplication.php(142): CWebApplication->runController('css/print.css')
+#1 /Canvas/www/htdocs/pencil_cms/server/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /Canvas/www/htdocs/pencil_cms/server/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pencil_cms/server/css/print.css
+HTTP_REFERER=http://localhost/pencil_cms/server/site/login
+---
