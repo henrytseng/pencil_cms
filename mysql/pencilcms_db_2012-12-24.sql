@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.1.44)
 # Database: pencilcms_db
-# Generation Time: 2012-12-19 05:21:20 +0000
+# Generation Time: 2012-12-24 23:43:43 +0000
 # ************************************************************
 
 
@@ -26,7 +26,7 @@
 DROP TABLE IF EXISTS `pencil_file_folders`;
 
 CREATE TABLE `pencil_file_folders` (
-  `file_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `file_id` bigint(20) unsigned NOT NULL,
   `folder_id` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`file_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -40,7 +40,7 @@ DROP TABLE IF EXISTS `pencil_files`;
 
 CREATE TABLE `pencil_files` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL DEFAULT '',
+  `name` varchar(64) NOT NULL DEFAULT '',
   `path` varchar(255) DEFAULT NULL,
   `mime` varchar(32) DEFAULT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -57,11 +57,39 @@ DROP TABLE IF EXISTS `pencil_folders`;
 
 CREATE TABLE `pencil_folders` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
+  `name` varchar(64) DEFAULT NULL,
   `parent_id` bigint(20) unsigned NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `modified` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table pencil_galleries
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pencil_galleries`;
+
+CREATE TABLE `pencil_galleries` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL DEFAULT '',
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `modified` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table pencil_gallery_images
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pencil_gallery_images`;
+
+CREATE TABLE `pencil_gallery_images` (
+  `gallery_id` bigint(20) unsigned NOT NULL,
+  `image_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`gallery_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 
@@ -73,7 +101,7 @@ DROP TABLE IF EXISTS `pencil_group`;
 
 CREATE TABLE `pencil_group` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL DEFAULT '',
+  `name` varchar(64) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -87,18 +115,17 @@ DROP TABLE IF EXISTS `pencil_group_images`;
 CREATE TABLE `pencil_group_images` (
   `group_id` bigint(20) unsigned NOT NULL,
   `image_id` bigint(20) unsigned NOT NULL,
-  `size` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`group_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 
 
-# Dump of table pencil_group_profile
+# Dump of table pencil_group_profiles
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `pencil_group_profile`;
+DROP TABLE IF EXISTS `pencil_group_profiles`;
 
-CREATE TABLE `pencil_group_profile` (
+CREATE TABLE `pencil_group_profiles` (
   `group_id` bigint(20) unsigned NOT NULL,
   `description` text,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -117,8 +144,145 @@ CREATE TABLE `pencil_images` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `file_id` bigint(20) unsigned NOT NULL,
   `original_image` bigint(20) unsigned DEFAULT NULL,
+  `name` varchar(64) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `type` varchar(24) DEFAULT NULL,
-  `copy` varchar(255) DEFAULT NULL,
+  `crop` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table pencil_page_blocks
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pencil_page_blocks`;
+
+CREATE TABLE `pencil_page_blocks` (
+  `page_id` bigint(20) unsigned NOT NULL,
+  `block` varchar(64) NOT NULL DEFAULT '',
+  `content` text,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `modified` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`page_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table pencil_page_descriptors
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pencil_page_descriptors`;
+
+CREATE TABLE `pencil_page_descriptors` (
+  `page_id` bigint(20) unsigned NOT NULL,
+  `author_id` bigint(20) unsigned NOT NULL,
+  `description` text,
+  PRIMARY KEY (`page_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table pencil_pages
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pencil_pages`;
+
+CREATE TABLE `pencil_pages` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL DEFAULT '',
+  `slug` varchar(255) DEFAULT NULL,
+  `template` varchar(64) NOT NULL DEFAULT '',
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `modified` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table pencil_revision_page_blocks
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pencil_revision_page_blocks`;
+
+CREATE TABLE `pencil_revision_page_blocks` (
+  `page_id` bigint(20) unsigned NOT NULL,
+  `block` varchar(64) NOT NULL DEFAULT '',
+  `content` text,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `modified` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`page_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table pencil_revision_page_descriptors
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pencil_revision_page_descriptors`;
+
+CREATE TABLE `pencil_revision_page_descriptors` (
+  `page_id` bigint(20) unsigned NOT NULL,
+  `author_id` bigint(20) unsigned NOT NULL,
+  `description` text,
+  PRIMARY KEY (`page_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table pencil_revision_pages
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pencil_revision_pages`;
+
+CREATE TABLE `pencil_revision_pages` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL DEFAULT '',
+  `slug` varchar(255) DEFAULT NULL,
+  `template` varchar(64) NOT NULL DEFAULT '',
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `modified` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table pencil_revisions
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pencil_revisions`;
+
+CREATE TABLE `pencil_revisions` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table pencil_tag_entities
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pencil_tag_entities`;
+
+CREATE TABLE `pencil_tag_entities` (
+  `tag_id` bigint(20) unsigned NOT NULL,
+  `entity_model` varchar(255) NOT NULL DEFAULT '',
+  `entity_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`tag_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table pencil_tags
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pencil_tags`;
+
+CREATE TABLE `pencil_tags` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -162,7 +326,6 @@ DROP TABLE IF EXISTS `pencil_user_images`;
 CREATE TABLE `pencil_user_images` (
   `user_id` bigint(20) unsigned NOT NULL,
   `image_id` bigint(20) unsigned NOT NULL,
-  `size` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -176,6 +339,7 @@ DROP TABLE IF EXISTS `pencil_user_logins`;
 CREATE TABLE `pencil_user_logins` (
   `uid` char(16) NOT NULL DEFAULT '',
   `user_id` bigint(20) unsigned NOT NULL,
+  `session_id` char(32) DEFAULT NULL,
   `ip_address` char(15) NOT NULL DEFAULT '',
   `login_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `logout_time` timestamp NULL DEFAULT NULL,
@@ -215,7 +379,7 @@ DROP TABLE IF EXISTS `pencil_users`;
 
 CREATE TABLE `pencil_users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL DEFAULT '',
+  `username` varchar(64) NOT NULL DEFAULT '',
   `email` varchar(255) DEFAULT NULL,
   `password` char(64) NOT NULL DEFAULT '',
   `key` char(64) NOT NULL DEFAULT '',
